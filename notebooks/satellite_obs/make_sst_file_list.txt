@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Output list of URLs
+LIST="oisst_file_list.txt"
+> "$LIST"
+
+# Base URL
+BASE_URL="https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr"
+
+# Loop over years and months
+for YEAR in {2014..2024}; do
+  for MONTH in 09 10 11 12; do
+    # Get days in month (accounts for leap years)
+    for DAY in $(seq -w 1 31); do
+      if date -d "$YEAR-$MONTH-$DAY" >/dev/null 2>&1; then
+        DATE="${YEAR}${MONTH}${DAY}"
+        FILE="oisst-avhrr-v02r01.${DATE}.nc"
+        URL="${BASE_URL}/${YEAR}${MONTH}/${FILE}"
+        echo "$URL" >> "$LIST"
+      fi
+    done
+  done
+done
+
