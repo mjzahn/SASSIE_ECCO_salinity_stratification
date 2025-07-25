@@ -6,7 +6,7 @@ LIST="sic_file_list.txt"
 
 # Loop through years and months
 for YEAR in {2014..2024}; do
-  for MONTH in 09 10 11 12; do
+  for MONTH in 08 09 10 11 12; do
     # Generate days for this month
     for DAY in $(seq -w 1 31); do
       # Use GNU date to validate the date
