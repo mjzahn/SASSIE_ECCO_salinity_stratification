@@ -24,7 +24,8 @@ LIST="sic_file_list.txt"
 > "$LIST"
 
 # Loop through years 2014–2020
-for YEAR in {2014..2020}; do
+# for YEAR in {2014..2020}; do
+for YEAR in {2010..2015}; do
   # Loop through all 12 months
   for MONTH in $(seq -w 1 12); do
     # Loop through all possible days in a month
